@@ -1,0 +1,83 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: orki-core-service
+  labels:
+    prometheus: scraping
+spec:  
+  ports:
+  - name: http
+    port: 80
+    targetPort: 7777
+  selector:
+    app: orki-core
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: orki-front-service
+spec:  
+  ports:
+  - name: http
+    port: 80
+    targetPort: 5000
+  selector:
+    app: orki-front
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: orki-rabbitmq-service
+spec:  
+  ports:
+  - name: tcp
+    port: 5672
+    targetPort: 5672
+  selector:
+    app: orki-rabbitmq
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: orki-redis-service
+spec:  
+  ports:
+  - name: tcp
+    port: 6379
+    targetPort: 6379
+  selector:
+    app: orki-redis
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: orki-mqtt-service
+spec:  
+  ports:
+  - name: tcp
+    port: 1883
+    targetPort: 1883
+  selector:
+    app: orki-mqtt
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: orki-browserless-service
+spec:  
+  ports:
+  - name: http
+    port: 3000
+    targetPort: 3000
+  selector:
+    app: orki-browserless

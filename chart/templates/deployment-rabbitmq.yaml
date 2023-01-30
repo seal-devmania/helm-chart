@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orki-rabbitmq-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orki-rabbitmq
+  template:
+    metadata:
+      labels:
+        app: orki-rabbitmq
+    spec:
+      containers:
+      - name: rabbitmq
+        image: rabbitmq:3-management
+        imagePullPolicy: Always
+
+        resources:
+          requests:
+            cpu: 100m
+        
+        env:
+        - name: RABBITMQ_ERLANG_COOKIE
+          value: "SWQOKODSQALRPCLNMEQG"
+        - name: RABBITMQ_DEFAULT_USER
+          value: "rabbitmq"
+        - name: RABBITMQ_DEFAULT_PASS
+          value: "rabbitmq"
+        - name: RABBITMQ_DEFAULT_VHOST
+          value: "/"
+

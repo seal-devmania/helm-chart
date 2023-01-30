@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orki-front-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orki-front
+  template:
+    metadata:
+      labels:
+        app: orki-front
+    spec:
+      containers:
+      - name: front        
+        image: "{{ .Values.imageFront.repository }}:{{ .Values.imageFront.tag }}"
+        imagePullPolicy: Always
+              
+        resources:
+          requests:
+            cpu: 100m
+
+        envFrom:
+        - configMapRef:
+            name: orki-front-config
+
+            
+

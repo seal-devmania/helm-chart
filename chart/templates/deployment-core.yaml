@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orki-core-deploy
+spec:
+  selector:
+    matchLabels:
+      app: orki-core
+  template:
+    metadata:
+      labels:
+        app: orki-core
+    spec:
+      containers:
+      - name: core
+        image: "{{ .Values.imageBack.repository }}:{{ .Values.imageBack.tag }}"
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            httpHeaders:
+            - name: Custom-Header
+              value: Awesome
+            path: /core-docker/liveness
+            port: 7777
+            scheme: HTTP
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+          failureThreshold: 3
+          initialDelaySeconds: 20
+        
+        readinessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 20
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+          httpGet:
+            httpHeaders:
+            - name: Custom-Header
+              value: Awesome
+            path: /core-docker/liveness
+            port: 7777
+            scheme: HTTP
+            
+        resources:
+          requests:
+            cpu: 200m
+            memory: 300Mi
+
+        envFrom:
+        - configMapRef:
+            name: orki-back-config
+        - secretRef:
+            name: orki-back-secret
+        
+        env:
+        - name: PROJECT_URL
+          value: http://orki-core-service
+        - name: AMQP_HOST
+          value: "orki-rabbitmq-service"
+        - name: REDIS_HOST
+          value: "orki-redis-service"
+        - name: MQTT_HOST
+          value: "orki-mqtt-service"
+        - name: BROSERLESS_ENDPOINT
+          value: "ws://orki-browserless-service:3000"
+        - name: ORKI_SCHEDULES
+          value: "no"
+        - name: ORKI_QUEUES
+          value: "VIEWS_MANAGEMENT_UPDATE_MODELS"
+        - name: WAIT_FOR_HOSTS
+          value: "orki-redis-service:6379;orki-rabbitmq-service:5672;orki-mqtt-service:1883"
+

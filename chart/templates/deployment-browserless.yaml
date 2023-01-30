@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orki-browserless-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orki-browserless
+  template:
+    metadata:
+      labels:
+        app: orki-browserless
+    spec:
+      containers:
+      - name: browserless
+        image: browserless/chrome
+        imagePullPolicy: Always
+
+        resources:
+          requests:
+            cpu: 100m
+

@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: orki-core-virtual-service
+spec:
+  gateways:
+    - istio-system/gateway-https
+  hosts:
+    - {{ .Values.core.domain }}
+  http:
+    - route:
+        - destination:
+            host: orki-core-service
+            port:
+              number: 80

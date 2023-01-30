@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: orki-front-config
+data:
+{{- range $key, $value := .Values.frontConfigMapData }}
+  {{ $key }}: {{ $value }}
+{{- end }}

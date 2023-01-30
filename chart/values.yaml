@@ -1,0 +1,43 @@
+
+imageBack:
+  repository: willguitaradmfar/orki-dist-back
+  pullPolicy: Always
+  tag: "latest"
+
+imageFront:
+  repository: willguitaradmfar/orki-dist-front
+  pullPolicy: Always
+  tag: "latest"
+
+core:
+  minReplicas: 3
+  maxReplicas: 10
+  domain: orki-core.local
+  
+worker:
+  minReplicas: 1
+  maxReplicas: 10
+  
+front:
+  minReplicas: 1
+  maxReplicas: 1
+  domain: orki-front.local
+
+serviceAccount:
+  # Specifies whether a service local should be created
+  create: true
+  # Annotations to add to the service local
+  annotations: {}
+  # The name of the service local to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+
+coreSecretData:
+  MONGO_URI: "mongodb://orki-core-mongo:27017/orki"
+
+coreConfigMapData:
+  JSON_REQUEST_LIMIT: "100kb"
+
+frontConfigMapData:
+  SED_ORKI_SERVER_ENDPOINT: https:\/\/orki-front.local

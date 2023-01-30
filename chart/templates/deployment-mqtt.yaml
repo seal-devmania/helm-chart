@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orki-mqtt-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orki-mqtt
+  template:
+    metadata:
+      labels:
+        app: orki-mqtt
+    spec:
+      containers:
+      - name: mqtt
+        image: eclipse-mosquitto:1.6
+        imagePullPolicy: Always
+
+        resources:
+          requests:
+            cpu: 100m
+
