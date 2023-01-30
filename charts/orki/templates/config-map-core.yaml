@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: orki-core-config
+  name: orki-back-config
 data:
-{{- range $key, $value := .Values.coreConfigMapData }}
+{{- range $key, $value := .Values.backConfigMapData }}
   {{ $key }}: {{ $value }}
 {{- end }}

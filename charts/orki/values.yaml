@@ -33,10 +33,10 @@ serviceAccount:
   name: ""
 
 
-coreSecretData:
+backSecretData:
   MONGO_URI: "mongodb://orki-core-mongo:27017/orki"
 
-coreConfigMapData:
+backConfigMapData:
   JSON_REQUEST_LIMIT: "100kb"
 
 frontConfigMapData:
