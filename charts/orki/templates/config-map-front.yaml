@@ -6,3 +6,4 @@ data:
 {{- range $key, $value := .Values.frontConfigMapData }}
   {{ $key }}: {{ $value }}
 {{- end }}
+  SED_ORKI_SERVER_ENDPOINT: https:\/\/{{ .Values.core.domain }}

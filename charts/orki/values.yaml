@@ -40,4 +40,4 @@ backConfigMapData:
   JSON_REQUEST_LIMIT: "100kb"
 
 frontConfigMapData:
-  SED_ORKI_SERVER_ENDPOINT: https:\/\/orki-front.local
+  FRONT_VAR: "..."
