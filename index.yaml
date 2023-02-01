@@ -3,6 +3,16 @@ entries:
   orki:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-02-01T18:39:22.127395575Z"
+    description: Orki
+    digest: e141f312493a565fc30ddbf9482ea718f8cb3d83e6ebe89bbb3b2f90561d2197
+    name: orki
+    type: application
+    urls:
+    - https://github.com/seal-devmania/helm-chart/releases/download/orki-0.1.4/orki-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-02-01T18:25:27.698445454Z"
     description: Orki
     digest: 94fd2eb859934de25dbbdd0304f20ecafee920a00a771994f41117afa6777269
@@ -131,4 +141,4 @@ entries:
     urls:
     - https://github.com/seal-devmania/helm-chart/releases/download/orki-0.0.1/orki-0.0.1.tgz
     version: 0.0.1
-generated: "2023-02-01T18:25:27.69853706Z"
+generated: "2023-02-01T18:39:22.127476075Z"
