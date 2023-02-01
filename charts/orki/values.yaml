@@ -35,6 +35,7 @@ serviceAccount:
 mongodb:
   standalone: false
   imageTag: 5.0.14-focal
+  database: db
 
 backSecretData:
   MONGO_URI: "mongodb://adminuser:password123@orki-mongodb:27017/db"
