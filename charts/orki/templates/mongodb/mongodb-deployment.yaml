@@ -45,8 +45,6 @@ spec:
           successThreshold: 1
           failureThreshold: 6
         env:
-        - name: MONGO_INITDB_DATABASE
-          value: {{ .Values.mongodb.database }}
         - name: MONGO_INITDB_ROOT_USERNAME
           valueFrom:
             secretKeyRef:
