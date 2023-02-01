@@ -37,7 +37,7 @@ mongodb:
   imageTag: 5.0.14-focal
 
 backSecretData:
-  MONGO_URI: "mongodb://adminuser:password123@orki-mongodb:27017/test"
+  MONGO_URI: "mongodb://adminuser:password123@orki-mongodb:27017/admin"
 
 backConfigMapData:
   JSON_REQUEST_LIMIT: "100kb"
