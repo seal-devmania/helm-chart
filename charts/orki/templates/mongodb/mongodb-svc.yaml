@@ -1,0 +1,17 @@
+{{- if .Values.mongodb.standalone }}
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: orki-mongodb
+  name: orki-mongodb
+spec:
+  ports:
+  - port: 27017
+    protocol: TCP
+    targetPort: 27017
+  selector:
+    app: orki-mongodb
+  type: ClusterIP
+{{- end}}
+

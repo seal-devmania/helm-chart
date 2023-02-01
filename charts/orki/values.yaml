@@ -32,9 +32,12 @@ serviceAccount:
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
+mongodb:
+  standalone: false
+  imageTag: 5.0.14-focal
 
 backSecretData:
-  MONGO_URI: "mongodb://orki-core-mongo:27017/orki"
+  MONGO_URI: "mongodb://adminuser:password123@orki-mongodb:27017/db"
 
 backConfigMapData:
   JSON_REQUEST_LIMIT: "100kb"

@@ -1,0 +1,65 @@
+{{- if .Values.mongodb.standalone }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: orki-mongodb
+  name: orki-mongodb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orki-mongodb
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: orki-mongodb
+    spec:
+      containers:
+      - image: mongo:{{ .Values.mongodb.imageTag }}
+        name: mongodb
+        args: ["--dbpath","/data/db"]
+        livenessProbe:
+          exec:
+            command:
+              - mongo
+              - --disableImplicitSessions
+              - --eval
+              - "db.adminCommand('ping')"
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          successThreshold: 1
+          failureThreshold: 6
+        readinessProbe:
+          exec:
+            command:
+              - mongo
+              - --disableImplicitSessions
+              - --eval
+              - "db.adminCommand('ping')"
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          successThreshold: 1
+          failureThreshold: 6
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: orki-mongodb-secret
+              key: username
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: orki-mongodb-secret
+              key: password
+        volumeMounts:
+        - name: "mongo-data-dir"
+          mountPath: "/data/db"
+      volumes:
+      - name: "mongo-data-dir"
+        persistentVolumeClaim:
+          claimName: "orki-mongodb"
+{{- end}}
