@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: orki-mongodb-data
+  name: orki-mongodb-pvc
 spec:
   accessModes:
     - ReadWriteOnce 

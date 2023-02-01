@@ -61,5 +61,5 @@ spec:
       volumes:
       - name: "mongo-data-dir"
         persistentVolumeClaim:
-          claimName: "orki-mongodb"
+          claimName: "orki-mongodb-pvc"
 {{- end}}
