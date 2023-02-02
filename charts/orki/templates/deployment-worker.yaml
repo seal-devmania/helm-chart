@@ -17,28 +17,22 @@ spec:
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
-            httpHeaders:
-            - name: Custom-Header
-              value: Awesome
             path: /core-docker/liveness
             port: 7777
             scheme: HTTP
-          periodSeconds: 60
+          periodSeconds: 10
           successThreshold: 1
-          timeoutSeconds: 30
+          timeoutSeconds: 5
           failureThreshold: 3
-          initialDelaySeconds: 60
+          initialDelaySeconds: 10
         
         readinessProbe:
           failureThreshold: 3
-          initialDelaySeconds: 60
-          periodSeconds: 60
+          initialDelaySeconds: 10
+          periodSeconds: 10
           successThreshold: 1
-          timeoutSeconds: 30
+          timeoutSeconds: 5
           httpGet:
-            httpHeaders:
-            - name: Custom-Header
-              value: Awesome
             path: /core-docker/liveness
             port: 7777
             scheme: HTTP
