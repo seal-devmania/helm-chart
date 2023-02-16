@@ -1,0 +1,19 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: backup-s3
+spec:
+  schedule: "0 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: backup-s3
+            image: willguitaradmfar/mongo-backup-s3:latest
+            envFrom:
+            - configMapRef:
+                name: orki-back-config
+            - secretRef:
+                name: orki-back-secret
+          restartPolicy: OnFailure
