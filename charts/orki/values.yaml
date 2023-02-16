@@ -48,7 +48,7 @@ backConfigMapData:
   JSON_REQUEST_LIMIT: "100kb"
 
 backup:
-  cron: "0 * * * *"
+  cron: "0 */6 * * *" # every 6 hours
 
 frontConfigMapData:
   FRONT_VAR: "..."
