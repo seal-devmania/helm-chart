@@ -47,5 +47,8 @@ backConfigMapData:
   S3_BUCKET: "my-bucket"
   JSON_REQUEST_LIMIT: "100kb"
 
+backup:
+  cron: "0 * * * *"
+
 frontConfigMapData:
   FRONT_VAR: "..."
