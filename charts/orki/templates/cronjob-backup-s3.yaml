@@ -11,6 +11,7 @@ spec:
           containers:
           - name: backup-s3
             image: willguitaradmfar/mongo-backup-s3:latest
+            imagePullPolicy: Always
             envFrom:
             - configMapRef:
                 name: orki-back-config
