@@ -12,6 +12,10 @@ spec:
       labels:
         app: orki-rabbitmq
     spec:
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       containers:
       - name: rabbitmq
         image: rabbitmq:3-management

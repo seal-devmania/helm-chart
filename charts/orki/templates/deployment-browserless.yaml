@@ -12,6 +12,10 @@ spec:
       labels:
         app: orki-browserless
     spec:
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       containers:
       - name: browserless
         image: browserless/chrome

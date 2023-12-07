@@ -52,3 +52,5 @@ backup:
 
 frontConfigMapData:
   FRONT_VAR: "..."
+
+nodeSelector: {}
