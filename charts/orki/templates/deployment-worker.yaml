@@ -11,6 +11,10 @@ spec:
       labels:
         app: orki-worker
     spec:
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       containers:
       - name: worker
         image: "{{ .Values.imageBack.repository }}:{{ .Values.imageBack.tag }}"
