@@ -8,10 +8,6 @@ spec:
     spec:
       template:
         spec:
-          {{- with .Values.nodeSelector }}
-          nodeSelector:
-            {{- toYaml . | nindent 8 }}
-          {{- end }}
           containers:
           - name: backup-s3
             image: willguitaradmfar/mongo-backup-s3:latest
