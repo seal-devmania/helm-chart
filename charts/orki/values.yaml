@@ -11,6 +11,7 @@ imageFront:
 
 nfs:
   server: 127.0.0.1
+  path: /mnt/nfs_share
 
 core:
   minReplicas: 3
