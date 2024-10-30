@@ -12,6 +12,7 @@ imageFront:
 nfs:
   server: 127.0.0.1
   path: /mnt/nfs_share
+  bundlePath: /tmp/orki_runtime_modules
 
 core:
   minReplicas: 3
