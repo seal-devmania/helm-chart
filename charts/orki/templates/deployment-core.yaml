@@ -68,9 +68,11 @@ spec:
           value: "VIEWS_MANAGEMENT_UPDATE_MODELS,CORE_SCRIPT_PUBLISHED,CORE_RUNTIME_PUBLISHED"
         - name: WAIT_FOR_HOSTS
           value: "orki-redis-service:6379;orki-rabbitmq-service:5672;orki-mqtt-service:1883"
+        - name: CORE_RUNTIME_MODULE_PATH
+          value: "{{ .Values.nfs.bundlePath }}"
         volumeMounts:
         - name: orki-runtime-bundle
-          mountPath: /tmp/orki_runtime_modules
+          mountPath: {{ .Values.nfs.bundlePath }}
 
       volumes:
       - name: orki-runtime-bundle
