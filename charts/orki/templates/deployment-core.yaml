@@ -68,10 +68,10 @@ spec:
         - name: WAIT_FOR_HOSTS
           value: "orki-redis-service:6379;orki-rabbitmq-service:5672;orki-mqtt-service:1883"
         volumeMounts:
-        - name: orki-runtime-modules
+        - name: orki-runtime-bundle
           mountPath: /tmp/orki_runtime_modules
 
       volumes:
-      - name: orki-runtime-modules
+      - name: orki-runtime-bundle
         persistentVolumeClaim:
-          claimName: orki-runtime-modules-pvc
+          claimName: orki-runtime-bundle-pvc
