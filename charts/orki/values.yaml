@@ -9,6 +9,9 @@ imageFront:
   pullPolicy: Always
   tag: "latest"
 
+nfs:
+  server: 127.0.0.1
+
 core:
   minReplicas: 3
   maxReplicas: 10
