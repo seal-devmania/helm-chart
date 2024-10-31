@@ -70,11 +70,18 @@ spec:
           value: "orki-redis-service:6379;orki-rabbitmq-service:5672;orki-mqtt-service:1883"
         - name: CORE_RUNTIME_MODULE_PATH
           value: "{{ .Values.nfs.bundlePath }}"
+        - name: CORE_RUNTIME_LOCAL_MODULE
+          value: "{{ not .Values.nfs.enabled }}"
+          
+{{- if .Values.nfs.enabled }}
         volumeMounts:
         - name: orki-runtime-bundle
           mountPath: {{ .Values.nfs.bundlePath }}
+{{- end }}
 
+{{- if .Values.nfs.enabled }}
       volumes:
       - name: orki-runtime-bundle
         persistentVolumeClaim:
           claimName: orki-runtime-bundle-pvc
+{{- end }}

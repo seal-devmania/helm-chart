@@ -10,6 +10,7 @@ imageFront:
   tag: "latest"
 
 nfs:
+  enabled: false
   server: 127.0.0.1
   path: /mnt/nfs_share
   bundlePath: /tmp/orki_runtime_modules
