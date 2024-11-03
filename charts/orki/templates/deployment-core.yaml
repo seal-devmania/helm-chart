@@ -65,7 +65,7 @@ spec:
         - name: ORKI_SCHEDULES
           value: "CORE_RUNTIME_HOST_WATCHER"
         - name: ORKI_QUEUES
-          value: "VIEWS_MANAGEMENT_UPDATE_MODELS,CORE_SCRIPT_PUBLISHED,CORE_RUNTIME_PUBLISHED"
+          value: "VIEWS_MANAGEMENT_UPDATE_MODELS,CORE_SCRIPT_PUBLISHED,CORE_RUNTIME_PUBLISHED,CORE_RUNTIME_UNPUBLISHED"
         - name: WAIT_FOR_HOSTS
           value: "orki-redis-service:6379;orki-rabbitmq-service:5672;orki-mqtt-service:1883"
         - name: CORE_RUNTIME_MODULE_PATH
