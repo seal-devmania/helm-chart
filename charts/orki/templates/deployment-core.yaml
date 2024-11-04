@@ -63,7 +63,7 @@ spec:
         - name: BROSERLESS_ENDPOINT
           value: "ws://orki-browserless-service:3000"
         - name: ORKI_SCHEDULES
-          value: "CORE_RUNTIME_HOST_WATCHER"
+          value: "CORE_RUNTIME_HOST_WATCHERS"
         - name: ORKI_QUEUES
           value: "VIEWS_MANAGEMENT_UPDATE_MODELS,CORE_SCRIPT_PUBLISHED,CORE_RUNTIME_PUBLISHED,CORE_RUNTIME_UNPUBLISHED"
         - name: WAIT_FOR_HOSTS
