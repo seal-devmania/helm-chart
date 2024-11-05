@@ -15,6 +15,10 @@ nfs:
   path: /mnt/nfs_share
   bundlePath: /tmp/orki_runtime_modules
 
+prometheus:
+  scrape_interval: 15s
+  domain: grafana.local
+
 core:
   minReplicas: 3
   maxReplicas: 10
