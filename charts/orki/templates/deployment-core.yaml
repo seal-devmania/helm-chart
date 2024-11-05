@@ -10,6 +10,10 @@ spec:
     metadata:
       labels:
         app: orki-core
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "7777"
+        prometheus.io/path: "/metrics"
     spec:
       {{- with .Values.nodeSelector }}
       nodeSelector:
