@@ -39,3 +39,4 @@ data:
   grafana.ini: |
     [server]
     domain = {{ .Values.prometheus.domain }}
+    root_url = https://%(domain)s/

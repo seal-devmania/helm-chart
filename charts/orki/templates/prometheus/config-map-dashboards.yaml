@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-dashboard-config
+data:
+  example-dashboard.json: |
+    {
+      "dashboard": {
+        "id": null,
+        "title": "Example Dashboard",
+        "panels": [
+          {
+            "title": "Sample Panel",
+            "type": "graph",
+            "targets": []
+          }
+        ]
+      },
+      "overwrite": true
+    }
