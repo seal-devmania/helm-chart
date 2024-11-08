@@ -5,7 +5,7 @@ metadata:
 data:
   prometheus.yml: |
     global:
-      scrape_interval: 5s
+      scrape_interval: {{ .Values.prometheus.scrape_interval }}
 
     scrape_configs:
       - job_name: 'kubernetes-pods'
