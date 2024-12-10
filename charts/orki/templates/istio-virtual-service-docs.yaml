@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: orki-docs-virtual-service
+spec:
+  gateways:
+    - istio-system/gateway-https
+  hosts:
+    - {{ .Values.docs.domain }}
+  http:
+    - route:
+        - destination:
+            host: orki-docs-service
+            port:
+              number: 80

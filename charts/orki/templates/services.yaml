@@ -47,6 +47,20 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  name: orki-docs-service
+spec:  
+  ports:
+  - name: http
+    port: 80
+    targetPort: 5000
+  selector:
+    app: orki-docs
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
   name: orki-rabbitmq-service
 spec:  
   ports:
