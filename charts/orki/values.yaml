@@ -9,6 +9,11 @@ imageFront:
   pullPolicy: Always
   tag: "latest"
 
+imageDocs:
+  repository: willguitaradmfar/orki-dist-docs
+  pullPolicy: Always
+  tag: "latest"
+
 nfs:
   enabled: false
   server: 127.0.0.1
@@ -32,6 +37,11 @@ front:
   minReplicas: 1
   maxReplicas: 1
   domain: orki-front.local
+  
+docs:
+  minReplicas: 1
+  maxReplicas: 1
+  domain: orki-docs.local
 
 serviceAccount:
   # Specifies whether a service local should be created

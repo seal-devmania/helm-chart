@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orki-docs-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orki-docs
+  template:
+    metadata:
+      labels:
+        app: orki-docs
+    spec:
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+      - name: docs        
+        image: "{{ .Values.imageDocs.repository }}:{{ .Values.imageDocs.tag }}"
+        imagePullPolicy: Always
+              
+        resources:
+          requests:
+            cpu: 100m
+
+        envFrom:
+        - configMapRef:
+            name: orki-docs-config
+
+            
+
