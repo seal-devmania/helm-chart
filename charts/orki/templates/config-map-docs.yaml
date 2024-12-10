@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: orki-docs-config
+data:
+{{- range $key, $value := .Values.docsConfigMapData }}
+  {{ $key }}: {{ $value }}
+{{- end }}
+  SED_ORKI_SERVER_ENDPOINT: https:\/\/{{ .Values.docs.domain }}
