@@ -60,7 +60,6 @@ RabbitMQ é um sistema de mensageria open-source confiável e escalável, que pe
 
 Com esses passos, você estará pronto para criar e gerenciar seu aplicativo lowcode utilizando o Orki!
 
-
 ORKI
 
 # helm-chart
