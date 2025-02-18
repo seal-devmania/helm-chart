@@ -3,7 +3,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: orki-runtime-bundle-pv
+  name: orki-runtime-bundle-pv-{{ .Release.Namespace }}
 spec:
   capacity:
     storage: 1Gi
@@ -22,6 +22,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: orki-runtime-bundle-pvc
 spec:
+  volumeName: orki-runtime-bundle-pv-{{ .Release.Namespace }}
   accessModes:
     - ReadWriteMany
   resources:
