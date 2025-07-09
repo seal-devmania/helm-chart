@@ -26,6 +26,8 @@ spec:
             cpu: 100m
         
         env:
+        - name: RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS
+          value: -rabbit consumer_timeout 18000000
         - name: RABBITMQ_ERLANG_COOKIE
           value: "SWQOKODSQALRPCLNMEQG"
         - name: RABBITMQ_DEFAULT_USER
