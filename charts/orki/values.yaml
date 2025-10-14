@@ -21,6 +21,7 @@ nfs:
   bundlePath: /tmp/orki_runtime_modules
 
 prometheus:
+  enabled: false
   scrape_interval: 15s
   domain: grafana.local
 

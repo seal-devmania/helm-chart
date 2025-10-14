@@ -62,11 +62,19 @@ apiVersion: v1
 kind: Service
 metadata:
   name: orki-rabbitmq-service
+  labels:
+    prometheus: scraping
 spec:  
   ports:
   - name: tcp
     port: 5672
     targetPort: 5672
+  - name: http
+    port: 15672
+    targetPort: 15672
+  - name: metrics
+    port: 15692
+    targetPort: 15692
   selector:
     app: orki-rabbitmq
 
