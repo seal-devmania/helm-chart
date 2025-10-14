@@ -1,3 +1,4 @@
+{{ if .Values.prometheus.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -35,3 +36,4 @@ spec:
         - name: grafana-datasource-volume
           configMap:
             name: grafana-datasource-config
+{{ end }}
